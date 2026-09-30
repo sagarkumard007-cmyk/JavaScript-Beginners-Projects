@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: antiquewhite;
+  padding: 20px;
+}
+
+.container h3 {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  letter-spacing: 2px;
+  color: rgb(255, 147, 6);
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.input {
+  display: block;
+  width: 90%;
+  height: 280px;
+  margin: auto;
+  padding: 10px;
+  color: rgb(41, 37, 37);
+  font-size: 18px;
+  border: 1px solid gray;
+  border-radius: 6px;
+  box-shadow: inset 2px 2px 4px wheat;
+  resize: none;
+}
+
+.input:hover::placeholder {
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.result-area {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.resultBox {
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  border: 2px solid rgb(244, 244, 244);
+  box-shadow: 3px 3px 4px white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.resultBox span {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.resultBox p {
+  margin-top: 8px;
+  font-size: 18px;
+}
+
+.resetBtn {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.resetBtn button {
+  background-color: green;
+  color: white;
+  width: 100px;
+  height: 50px;
+  border: 2px solid gray;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 4px;
+  box-shadow: 4px 4px 8px snow;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.resetBtn button:hover {
+  background-color: red;
+  color: yellow;
+  transform: scale(1.1);
+}

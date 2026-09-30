@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QuizMaster - Quiz</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f3f8ff;
+            color: #07184b;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            width: calc(100% - 28px);
+            max-width: 1500px;
+
+            height: 58px;
+
+            margin: 10px auto 0;
+            padding: 0 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: #ffffff;
+
+            border: 1px solid #dbe7f5;
+            border-radius: 10px 10px 0 0;
+
+            box-shadow: 0 2px 8px rgba(30, 70, 110, 0.05);
+        }
+
+
+        /* Logo */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            color: #07184b;
+            text-decoration: none;
+
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .logo i {
+            color: #146ef5;
+            font-size: 27px;
+        }
+
+
+        /* Navigation */
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+
+            margin-left: 120px;
+        }
+
+        .nav-links a {
+            color: #17213d;
+
+            text-decoration: none;
+
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #146ef5;
+        }
+
+
+        /* =========================
+           HEADER RIGHT
+        ========================= */
+
+        .quiz-header-right {
+            display: flex;
+            align-items: center;
+
+            gap: 22px;
+        }
+
+
+        /* Timer */
+
+        .timer {
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+
+            color: #17213d;
+
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .timer i {
+            color: #07184b;
+
+            font-size: 15px;
+        }
+
+
+        /* Exit */
+
+        .exit-btn {
+            padding: 8px 18px;
+
+            background: white;
+
+            border: 1px solid #ffb9b9;
+            border-radius: 7px;
+
+            color: #e74b4b;
+
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .exit-btn:hover {
+            background: #fff4f4;
+        }
+
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
+
+        .quiz-container {
+            width: calc(100% - 28px);
+            max-width: 1500px;
+
+            min-height: calc(100vh - 78px);
+
+            margin: 0 auto;
+
+            padding: 30px 22px 25px;
+
+            border: 1px solid #dbe7f5;
+            border-top: none;
+
+            background: #f7faff;
+        }
+
+
+        /* =========================
+           MAIN GRID
+        ========================= */
+
+        .quiz-layout {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr) 270px;
+
+            gap: 18px;
+        }
+
+
+        /* =========================
+           QUESTION CARD
+        ========================= */
+
+        .question-card {
+            padding: 18px;
+
+            background: white;
+
+            border: 1px solid #e1eaf5;
+            border-radius: 10px;
+
+            box-shadow:
+                0 3px 12px rgba(30, 70, 110, 0.03);
+        }
+
+
+        /* =========================
+           QUESTION TOP
+        ========================= */
+
+        .question-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding-bottom: 14px;
+
+            border-bottom: 1px solid #edf1f7;
+        }
+
+
+        /* Category */
+
+        .category {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        .category-icon {
+            width: 28px;
+            height: 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #078d69;
+
+            background: #e6faf4;
+
+            border-radius: 50%;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           PROGRESS
+        ========================= */
+
+        .progress-info {
+            width: 150px;
+        }
+
+
+        .question-number {
+            display: flex;
+            justify-content: space-between;
+
+            margin-bottom: 5px;
+
+            color: #3c4c6b;
+
+            font-size: 10px;
+        }
+
+
+        .progress-bar {
+            width: 100%;
+            height: 7px;
+
+            background: #e9eff6;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+
+
+        .progress-fill {
+            width: 10%;
+            height: 100%;
+
+            background: #0baa76;
+
+            border-radius: 10px;
+        }
+
+
+        /* =========================
+           QUESTION
+        ========================= */
+
+        .question-title {
+            margin: 22px 0 17px;
+
+            color: #17213d;
+
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           OPTIONS
+        ========================= */
+
+        .options {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+        }
+
+
+        .option {
+            width: 100%;
+            min-height: 36px;
+
+            padding: 7px 12px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            background: white;
+
+            border: 1px solid #dce5f0;
+
+            border-radius: 7px;
+
+            color: #202b43;
+
+            text-align: left;
+
+            font-size: 12px;
+
+            transition: 0.2s;
+        }
+
+
+        .option:hover {
+            border-color: #8cb9f7;
+
+            background: #f7fbff;
+        }
+
+
+        /* Option Letter */
+
+        .option-letter {
+            width: 21px;
+            height: 21px;
+
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #d4deeb;
+
+            border-radius: 50%;
+
+            color: #44516b;
+
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+
+        /* Selected */
+
+        .option.selected {
+            border-color: #146ef5;
+
+            background: #eef6ff;
+        }
+
+
+        .option.selected .option-letter {
+            color: white;
+
+            background: #146ef5;
+
+            border-color: #146ef5;
+        }
+
+
+        /* =========================
+           QUESTION BUTTONS
+        ========================= */
+
+        .question-actions {
+            margin-top: 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        .previous-btn,
+        .next-btn {
+            min-width: 115px;
+            height: 40px;
+
+            border-radius: 8px;
+
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+
+        .previous-btn {
+            background: white;
+
+            border: 1px solid #ccd8e7;
+
+            color: #283651;
+        }
+
+
+        .previous-btn:hover {
+            background: #f6f9fc;
+        }
+
+
+        .next-btn {
+            background: #146ef5;
+
+            border: none;
+
+            color: white;
+
+            box-shadow:
+                0 5px 12px rgba(20, 110, 245, 0.18);
+        }
+
+
+        .next-btn:hover {
+            background: #075bd7;
+        }
+
+
+        .previous-btn i {
+            margin-right: 7px;
+        }
+
+
+        .next-btn i {
+            margin-left: 7px;
+        }
+
+
+        /* =========================
+           SIDEBAR
+        ========================= */
+
+        .sidebar {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 15px;
+        }
+
+
+        .sidebar-card {
+            padding: 17px;
+
+            background: white;
+
+            border: 1px solid #e1eaf5;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 3px 12px rgba(30, 70, 110, 0.03);
+        }
+
+
+        .sidebar-title {
+            margin-bottom: 14px;
+
+            color: #17213d;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           QUESTION GRID
+        ========================= */
+
+        .question-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 9px;
+        }
+
+
+        .question-number-btn {
+            width: 32px;
+            height: 32px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #edf2f8;
+
+            color: #1c2945;
+
+            font-size: 11px;
+        }
+
+
+        .question-number-btn:hover {
+            background: #dfeafa;
+        }
+
+
+        .question-number-btn.active {
+            background: #146ef5;
+
+            color: white;
+        }
+
+        .question-number-btn.answered:not(.active) {
+            background: #d9f6ec;
+            color: #078d69;
+        }
+
+        .previous-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .result-content {
+            padding: 30px 10px 10px;
+            text-align: center;
+        }
+
+        .result-content .category-icon {
+            margin: 0 auto 16px;
+        }
+
+        .result-content p {
+            margin-top: 8px;
+            color: #3c4c6b;
+            font-size: 13px;
+        }
+
+        .result-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 22px 0;
+        }
+
+        .result-stat {
+            padding: 12px 6px;
+            border-radius: 8px;
+            background: #f4f7fb;
+        }
+
+        .result-stat strong {
+            display: block;
+            font-size: 20px;
+        }
+
+        .result-stat span {
+            color: #52617a;
+            font-size: 10px;
+        }
+
+        .result-stat.correct { color: #078d69; background: #e6faf4; }
+        .result-stat.wrong { color: #d74b4b; background: #fff0f0; }
+        .result-stat.answered { color: #146ef5; background: #eef6ff; }
+        .result-stat.unanswered { color: #9a6a00; background: #fff8e1; }
+
+        .review-title {
+            margin: 18px 0 10px;
+            text-align: left;
+            font-size: 13px;
+        }
+
+        .answer-review {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            text-align: left;
+        }
+
+        .answer-review-item {
+            display: grid;
+            grid-template-columns: 26px minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 11px;
+        }
+
+        .answer-review-item.correct { background: #eafaf4; color: #087b5d; }
+        .answer-review-item.wrong { background: #fff0f0; color: #b83f3f; }
+        .answer-review-item.unanswered { background: #fff8e1; color: #896000; }
+        .review-number { font-weight: 700; }
+        .review-question { color: #273650; }
+        .review-status { font-weight: 600; white-space: nowrap; }
+
+        .result-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           INSTRUCTIONS
+        ========================= */
+
+        .instructions {
+            padding: 17px;
+        }
+
+
+        .instruction-title {
+            display: flex;
+            align-items: center;
+
+            gap: 7px;
+
+            margin-bottom: 12px;
+
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+
+        .instruction-title i {
+            color: #146ef5;
+        }
+
+
+        .instructions ul {
+            padding-left: 17px;
+
+            color: #34435f;
+
+            font-size: 10px;
+
+            line-height: 2;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                margin-left: 0;
+
+                gap: 18px;
+            }
+
+            .quiz-layout {
+                grid-template-columns: 1fr;
+            }
+
+
+            .sidebar {
+                display: grid;
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+            .result-stats { grid-template-columns: repeat(2, 1fr); }
+            .answer-review-item { grid-template-columns: 22px minmax(0, 1fr); }
+            .review-status { grid-column: 2; }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .navbar {
+                width: calc(100% - 16px);
+
+                height: auto;
+
+                padding: 12px 14px;
+
+                flex-wrap: wrap;
+
+                gap: 12px;
+            }
+
+
+            .nav-links {
+                order: 3;
+
+                width: 100%;
+
+                justify-content: center;
+            }
+
+
+            .quiz-header-right {
+                gap: 10px;
+            }
+
+
+            .timer {
+                font-size: 10px;
+            }
+
+
+            .exit-btn {
+                padding: 7px 12px;
+            }
+
+
+            .quiz-container {
+                width: calc(100% - 16px);
+
+                padding: 15px 10px;
+            }
+
+
+            .question-top {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 12px;
+            }
+
+
+            .progress-info {
+                width: 100%;
+            }
+
+
+            .question-title {
+                font-size: 14px;
+            }
+
+
+            .question-actions {
+                gap: 10px;
+            }
+
+
+            .sidebar {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+
+
+        <!-- Logo -->
+
+        <a href="#" class="logo">
+
+            <i class="fa-solid fa-graduation-cap"></i>
+
+            <span>QuizMaster</span>
+
+        </a>
+
+
+        <!-- Navigation -->
+
+        <nav class="nav-links">
+
+            <a href="Index.html">
+                Home
+            </a>
+
+            <a href="Quiz Category.html">
+                Categories
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+        </nav>
+
+
+        <!-- Timer + Exit -->
+
+        <div class="quiz-header-right">
+
+
+            <div class="timer">
+
+                <i class="fa-regular fa-clock"></i>
+
+                <span>Time Left:</span>
+
+                <strong id="timer">
+                    14:37
+                </strong>
+
+            </div>
+
+
+            <button class="exit-btn">
+                Exit
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="quiz-container">
+
+
+        <div class="quiz-layout">
+
+
+            <!-- =========================
+                 QUESTION CARD
+            ========================== -->
+
+            <section class="question-card">
+
+
+                <!-- Question Top -->
+
+                <div class="question-top">
+
+
+                    <!-- Category -->
+
+                    <div class="category">
+
+                        <div class="category-icon">
+
+                            <i class="fa-solid fa-globe"></i>
+
+                        </div>
+
+                        <span>
+                            General Knowledge
+                        </span>
+
+                    </div>
+
+
+                    <!-- Progress -->
+
+                    <div class="progress-info">
+
+                        <div class="question-number">
+
+                            <span>
+                                Question 1 of 10
+                            </span>
+
+                            <span>
+                                10%
+                            </span>
+
+                        </div>
+
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Question -->
+
+                <h2 class="question-title">
+
+                    Which is the largest planet in our Solar System?
+
+                </h2>
+
+
+
+                <!-- Options -->
+
+                <div class="options">
+
+
+                    <button class="option">
+
+                        <span class="option-letter">
+                            A
+                        </span>
+
+                        <span>
+                            Earth
+                        </span>
+
+                    </button>
+
+
+                    <button class="option">
+
+                        <span class="option-letter">
+                            B
+                        </span>
+
+                        <span>
+                            Mars
+                        </span>
+
+                    </button>
+
+
+                    <button class="option selected">
+
+                        <span class="option-letter">
+                            C
+                        </span>
+
+                        <span>
+                            Jupiter
+                        </span>
+
+                    </button>
+
+
+                    <button class="option">
+
+                        <span class="option-letter">
+                            D
+                        </span>
+
+                        <span>
+                            Saturn
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- Previous / Next -->
+
+                <div class="question-actions">
+
+
+                    <button class="previous-btn">
+
+                        <i class="fa-solid fa-arrow-left"></i>
+
+                        Previous
+
+                    </button>
+
+
+                    <button class="next-btn">
+
+                        Next
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================
+                 SIDEBAR
+            ========================== -->
+
+            <aside class="sidebar">
+
+
+                <!-- Quiz Progress -->
+
+                <div class="sidebar-card">
+
+                    <h3 class="sidebar-title">
+                        Quiz Progress
+                    </h3>
+
+
+                    <div class="question-grid">
+
+
+                        <button class="question-number-btn active">
+                            1
+                        </button>
+
+                        <button class="question-number-btn">
+                            2
+                        </button>
+
+                        <button class="question-number-btn">
+                            3
+                        </button>
+
+                        <button class="question-number-btn">
+                            4
+                        </button>
+
+                        <button class="question-number-btn">
+                            5
+                        </button>
+
+                        <button class="question-number-btn">
+                            6
+                        </button>
+
+                        <button class="question-number-btn">
+                            7
+                        </button>
+
+                        <button class="question-number-btn">
+                            8
+                        </button>
+
+                        <button class="question-number-btn">
+                            9
+                        </button>
+
+                        <button class="question-number-btn">
+                            10
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Instructions -->
+
+                <div class="sidebar-card instructions">
+
+
+                    <h3 class="instruction-title">
+
+                        <i class="fa-solid fa-circle-info"></i>
+
+                        Instructions
+
+                    </h3>
+
+
+                    <ul>
+
+                        <li>
+                            Each question has 4 options.
+                        </li>
+
+                        <li>
+                            Select the correct answer.
+                        </li>
+
+                        <li>
+                            You can't go back after finishing.
+                        </li>
+
+                        <li>
+                            Complete within the time limit.
+                        </li>
+
+                        <li>
+                            Good luck! 😊
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </aside>
+
+        </div>
+
+    </main>
+
+    <script src="question-bank.js"></script>
+    <script src="quiz-logic.js"></script>
+</body>
+
+</html>

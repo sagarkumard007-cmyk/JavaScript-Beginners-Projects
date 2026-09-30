@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email & Password Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Email & Password Generator</h1>
+    <p class="subtitle">Simple JavaScript Project</p>
+
+    <!-- Email -->
+    <div class="box">
+      <h2>📧 Email Generator</h2>
+
+      <div class="result">
+        <input type="text" id="email" placeholder="Your email will appear here" readonly>
+        <button id="copyEmail">Copy</button>
+      </div>
+
+      <button class="generate" id="emailGenerate">Generate Email</button>
+    </div>
+
+    <!-- Password -->
+    <div class="box">
+      <h2>🔐 Password Generator</h2>
+
+      <div class="result">
+        <input type="text" id="password" placeholder="Your password will appear here" readonly>
+        <button id="copyPassword">Copy</button>
+      </div>
+
+      <button class="generate" id="passwordGenerate">Generate Password</button>
+    </div>
+
+    <button class="reset" id="reset">Reset</button>
+
+    <p id="message"></p>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

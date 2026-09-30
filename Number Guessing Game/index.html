@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <style>
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d0caca;
+        }
+        .container {
+            width: 300px;
+            height: 250px;
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            padding: 10px;
+            width: 200px;
+            margin-bottom: 20px;
+            border: 1px solid rgb(252, 83, 21);
+            border-radius: 8px;
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+
+        }
+        #submitBtn, #resetBtn {
+            cursor: pointer;
+            width: 90px;
+            height: 30px;
+            font-size: 10px;
+            font-weight: bolder;
+            background-color: #1408f1;
+            color: white;
+            border: none;
+            box-shadow: 2px 2px 5px rgba(0, 56, 0, 0.2);
+            border-radius: 8px; 
+        
+        }
+        #resetBtn {
+            background-color: #f11414;
+        }
+        #result {
+        
+            margin-left: 30px;
+            margin-top: 20px;
+            font-size: 18px;
+            width: 80%;
+            height: 40px;
+            background-color: #98d1ef;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }   
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <h2>Number Guessing Game</h2>
+            <input type="number" id="guessInput" placeholder="Enter your guess">
+            <div class="buttons">
+
+                <button id="submitBtn">Submit Guess</button>
+                <button id="resetBtn">Reset Game</button>
+                
+            </div>
+            <div id="result"></div>
+        </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>

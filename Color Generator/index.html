@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>color Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header-row">
+      <div>
+        <p class="eyebrow">Palette Studio</p>
+        <h2>Color Generator</h2>
+      </div>
+      <div class="chip">Live</div>
+    </div>
+
+    <div class="color-panel">
+      <div class="colorbox" aria-label="Current color preview"></div>
+      <div class="meta-row">
+        <span class="label">Current color</span>
+        <button type="button" id="copy" class="icon-btn" aria-label="Copy hex code">Copy</button>
+      </div>
+      <div class="color-code" aria-live="polite">#356984</div>
+    </div>
+
+    <div class="buttons">
+      <button type="button" id="generate" class="primary-btn">Generate</button>
+      <button type="button" id="reset" class="secondary-btn">Reset</button>
+    </div>
+    <p>Color makes the world brighter ❤️</p>
+  </div>
+
+  <script src="script.js"></script>
+  
+</body>
+</html>

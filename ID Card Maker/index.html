@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Card Maker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Student Card Maker</h1>
+
+    <main>
+
+        <!-- =========================
+             FORM
+        ========================== -->
+
+        <section class="form-section">
+
+            <h2>Enter Student Details</h2>
+
+            <form>
+
+                <!-- Profile Image -->
+                <label for="profileImage">Profile Image</label>
+                <input
+                    type="file"
+                    id="profileImage"
+                    accept="image/*"
+                >
+
+                <!-- Roll Number -->
+                <label for="rollNumber">Roll Number</label>
+                <input
+                    type="text"
+                    id="rollNumber"
+                    placeholder="Enter roll number"
+                >
+
+                <!-- Name -->
+                <label for="studentName">Name</label>
+                <input
+                    type="text"
+                    id="studentName"
+                    placeholder="Enter name"
+                >
+
+                <!-- Age -->
+                <label for="studentAge">Age</label>
+                <input
+                    type="number"
+                    id="studentAge"
+                    placeholder="Enter age"
+                >
+
+                <!-- Course -->
+                <label for="course">Course</label>
+                <input
+                    type="text"
+                    id="course"
+                    placeholder="Enter course"
+                >
+
+                <!-- College -->
+                <label for="collegeName">College Name</label>
+                <input
+                    type="text"
+                    id="collegeName"
+                    placeholder="Enter college name"
+                >
+
+                <div class="buttons">
+
+                    <button type="button" id="generateBtn">
+                        Generate Card
+                    </button>
+
+                    <button type="reset" id="resetBtn">
+                        Reset
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- =========================
+             CARD PREVIEW
+        ========================== -->
+
+        <section class="preview-section">
+
+            <h2>Card Preview</h2>
+
+            <div class="student-card" id="studentCard">
+
+                <div class="card-top">
+                    <h3>STUDENT ID CARD</h3>
+                </div>
+
+
+                <div class="card-content">
+
+                    <!-- Image -->
+                    <div class="image-box">
+
+                        <img
+                            id="cardImage"
+                            src=""
+                            alt="Student Photo"
+                        >
+
+                    </div>
+
+
+                    <!-- Details -->
+                    <div class="student-details">
+
+                        <p>
+                            <strong>Name:</strong>
+                            <span id="cardName">
+                                Your Name
+                            </span>
+                        </p>
+
+                        <p>
+                            <strong>Roll No:</strong>
+                            <span id="cardRoll">
+                                --------
+                            </span>
+                        </p>
+
+                        <p>
+                            <strong>Age:</strong>
+                            <span id="cardAge">
+                                --
+                            </span>
+                        </p>
+
+                        <p>
+                            <strong>Course:</strong>
+                            <span id="cardCourse">
+                                Your Course
+                            </span>
+                        </p>
+
+                        <p>
+                            <strong>College:</strong>
+                            <span id="cardCollege">
+                                Your College
+                            </span>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Download Button -->
+
+            <button
+                type="button"
+                id="downloadBtn"
+                class="download-btn"
+            >
+                Download PDF
+            </button>
+
+        </section>
+
+    </main>
+    <!-- html2canvas -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- Your JavaScript -->
+<script src="script.js"></script>
+
+</body>
+
+</html>
+

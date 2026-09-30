@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Temperature Converter</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- Main Card -->
+        <div class="converter-card">
+
+            <!-- Header -->
+            <header class="header">
+
+                <div class="thermometer-icon">
+                    🌡️
+                </div>
+
+                <div>
+                    <h1>
+                        Temperature
+                        <span>Converter</span>
+                    </h1>
+
+                    <p>
+                        Convert between Celsius, Fahrenheit and Kelvin easily
+                    </p>
+                </div>
+
+                <div class="science-badge">
+                    Feel the Science ⚛
+                </div>
+
+            </header>
+
+
+            <!-- Converter -->
+            <section class="converter">
+
+                <!-- FROM -->
+                <div class="conversion-row">
+
+                    <div class="input-group">
+                        <label for="fromValue">From</label>
+
+                        <input
+                            type="number"
+                            id="fromValue"
+                            placeholder="Enter temperature"
+                            value="100"
+                        >
+                    </div>
+
+
+                    <div class="unit-group">
+
+                        <select id="fromUnit">
+
+                            <option value="celsius">
+                                🌡️ Celsius (°C)
+                            </option>
+
+                            <option value="fahrenheit">
+                                🌡️ Fahrenheit (°F)
+                            </option>
+
+                            <option value="kelvin">
+                                🌡️ Kelvin (K)
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SWAP BUTTON -->
+                <div class="swap-container">
+
+                    <div class="line"></div>
+
+                    <button id="swapBtn" class="swap-btn">
+                        ↕
+                    </button>
+
+                    <div class="line"></div>
+
+                </div>
+
+
+                <!-- TO -->
+                <div class="conversion-row">
+
+                    <div class="input-group">
+
+                        <label for="result">
+                            To
+                        </label>
+
+                        <input
+                            type="number"
+                            id="result"
+                            placeholder="Result"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="unit-group">
+
+                        <select id="toUnit">
+
+                            <option value="fahrenheit">
+                                🌡️ Fahrenheit (°F)
+                            </option>
+
+                            <option value="celsius">
+                                🌡️ Celsius (°C)
+                            </option>
+
+                            <option value="kelvin">
+                                🌡️ Kelvin (K)
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BUTTONS -->
+                <div class="buttons">
+
+                    <button id="convertBtn" class="convert-btn">
+                        🔄 Convert
+                    </button>
+
+                    <button id="resetBtn" class="reset-btn">
+                        ↻ Reset
+                    </button>
+
+                </div>
+
+
+                <!-- RESULT CARD -->
+                <div class="result-card">
+
+                    <div class="result-content">
+
+                        <div class="result-icon">
+                            🌡️
+                        </div>
+
+                        <div>
+
+                            <p class="result-label">
+                                Result
+                            </p>
+
+                            <h2 id="resultText">
+                                212 °F
+                            </h2>
+
+                            <p id="resultDescription">
+                                100 °C is equal to 212 °F
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Temperature Status -->
+                    <div class="temperature-status">
+
+                        <div class="status-icon">
+                            🔥
+                        </div>
+
+                        <div>
+
+                            <strong id="statusText">
+                                Hot
+                            </strong>
+
+                            <small id="statusDescription">
+                                High Temperature
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FORMULAS -->
+                <div class="formula-card">
+
+                    <h3>
+                        📖 Conversion Formulas
+                    </h3>
+
+                    <div class="formulas">
+
+                        <div>
+                            <p>°F = (°C × 9/5) + 32</p>
+                            <p>°C = (°F − 32) × 5/9</p>
+                        </div>
+
+                        <div>
+                            <p>K = °C + 273.15</p>
+                            <p>°C = K − 273.15</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Footer -->
+            <footer>
+                Small Tools, Big Learning 🚀
+            </footer>
+
+        </div>
+
+    </main>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>

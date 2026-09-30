@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <title>Digital Clock</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="clock-shell">
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <section class="clock-card" aria-label="Digital clock">
+      <header class="clock-header">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>Focus clock</span>
+        </div>
+        <div class="live-indicator"><span></span>Live</div>
+      </header>
+
+      <div class="clock-content">
+        <p class="greeting" id="greeting">Good morning</p>
+        <p class="weekday" id="weekday">Monday</p>
+
+        <div class="time-row" aria-live="polite">
+          <time class="time" id="time">00:00:00</time>
+          <span class="period" id="period">AM</span>
+        </div>
+
+        <div class="date-row">
+          <span class="calendar-icon" aria-hidden="true">▦</span>
+          <time id="date">January 1, 2025</time>
+        </div>
+
+        <div class="clock-footer">
+          <span class="timezone"><span class="pin-icon" aria-hidden="true">⌖</span><span id="timezone">Local time</span></span>
+          <span class="seconds-track" aria-hidden="true"><span id="seconds-progress"></span></span>
+        </div>
+      </div>
+    </section>
+
+    <p class="hint">Your time, beautifully in sync.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

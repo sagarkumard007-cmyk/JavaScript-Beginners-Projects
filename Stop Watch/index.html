@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tempo — Digital Stopwatch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Tempo home">
+        <span class="brand-mark"><span></span><span></span><span></span></span>
+        <span>tempo</span>
+      </a>
+      <div class="status-pill"><span class="status-dot"></span><span id="statusText">Ready to focus</span></div>
+    </header>
+
+    <section class="hero" aria-labelledby="pageTitle">
+      <div class="eyebrow"><span class="eyebrow-line"></span>TIME YOUR MOMENT</div>
+      <h1 id="pageTitle">Find your <em>flow.</em></h1>
+      <p class="subtitle">A quiet space for focused time, one second at a time.</p>
+    </section>
+
+    <section class="stopwatch-card" aria-label="Stopwatch">
+      <div class="card-glow"></div>
+      <div class="timer-header">
+        <span class="timer-label"><span class="live-dot"></span>STOPWATCH</span>
+        <span class="session-label" id="sessionLabel">SESSION 01</span>
+      </div>
+
+      <div class="timer-display" aria-live="polite">
+        <span id="minutes">00</span><span class="separator">:</span><span id="seconds">00</span><span class="milliseconds"><span class="separator">.</span><span id="milliseconds">00</span></span>
+      </div>
+
+      <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+
+      <div class="controls">
+        <button class="control-button secondary" id="resetButton" type="button" aria-label="Reset stopwatch">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.34-5.66L4 8.68M4 4v4.68h4.68"/></svg>
+          <span>Reset</span>
+        </button>
+        <button class="control-button primary" id="startButton" type="button">
+          <svg id="startIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7V5Z"/></svg>
+          <span id="startText">Start timer</span>
+        </button>
+        <button class="control-button secondary" id="lapButton" type="button" aria-label="Record lap" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 2.5"/></svg>
+          <span>Lap</span>
+        </button>
+      </div>
+      <p class="shortcut-hint"><kbd>Space</kbd> to start / pause <span>·</span> <kbd>L</kbd> to record a lap</p>
+    </section>
+
+    <section class="laps-section" aria-labelledby="lapsTitle">
+      <div class="section-heading">
+        <div>
+          <h2 id="lapsTitle">Lap times</h2>
+          <p>Your rhythm, measured.</p>
+        </div>
+        <span class="lap-count" id="lapCount">0 LAPS</span>
+      </div>
+      <div class="laps-list" id="lapsList">
+        <div class="empty-state" id="emptyState">
+          <span class="empty-icon">↗</span>
+          <span>Your lap times will appear here</span>
+        </div>
+      </div>
+    </section>
+
+    <footer><span>© 2024 TEMPO</span><span>MADE FOR FOCUS</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

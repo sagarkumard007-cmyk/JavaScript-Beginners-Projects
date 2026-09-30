@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About QuizMaster</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="styleabout.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f9ff;
+      color: #10265c;
+    }
+
+    .about-page {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      overflow: hidden;
+      background: #f5f9ff;
+    }
+
+    .about-content {
+      width: 58%;
+      padding: 8vh 3.8vw 5vh 5.2vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      padding: 7px 13px;
+      border-radius: 20px;
+      background: #eaf3ff;
+      color: #165fd0;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .about-content h1 {
+      font-family: "Arvo", Georgia, serif;
+      font-size: clamp(2.4rem, 3.5vw, 4.1rem);
+      line-height: 1.12;
+      color: #10265c;
+      margin-bottom: 12px;
+    }
+
+    .intro {
+      font-size: clamp(1rem, 1.25vw, 1.35rem);
+      line-height: 1.5;
+      color: #33466f;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      max-width: 720px;
+      font-size: clamp(.92rem, 1.05vw, 1.12rem);
+      line-height: 1.65;
+      color: #35496f;
+      margin-bottom: 30px;
+    }
+
+    .box-container {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .box {
+      min-height: 145px;
+      padding: 18px 10px;
+      background: rgba(255, 255, 255, .95);
+      border: 1px solid #e4ebf6;
+      border-radius: 15px;
+      box-shadow: 0 5px 18px rgba(39, 75, 130, .07);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .icon-circle {
+      width: 39px;
+      height: 39px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .mission-icon {
+      color: #1166d8;
+      background: #e9f2ff;
+    }
+
+    .people-icon {
+      color: #149b72;
+      background: #e5f8f0;
+    }
+
+    .heart-icon {
+      color: #f04b55;
+      background: #ffe8ea;
+    }
+
+    .box h2 {
+      font-size: 16px;
+      line-height: 1.25;
+      color: #172b5f;
+      margin-bottom: 8px;
+    }
+
+    .box p {
+      font-size: 12px;
+      line-height: 1.45;
+      color: #60708e;
+    }
+
+    .main-image {
+      width: 42%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4vh 4vw 4vh 1vw;
+    }
+
+    .main-image img {
+      width: min(100%, 590px);
+      height: auto;
+      max-height: 92vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    @media (max-width: 1000px) {
+      .about-page {
+        overflow: auto;
+      }
+
+      .about-content {
+        width: 55%;
+        padding-left: 4vw;
+      }
+
+      .main-image {
+        width: 45%;
+      }
+
+      .box-container {
+        gap: 10px;
+      }
+
+      .box {
+        min-height: 135px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .about-page {
+        flex-direction: column;
+      }
+
+      .about-content,
+      .main-image {
+        width: 100%;
+      }
+
+      .about-content {
+        padding: 45px 24px 20px;
+      }
+
+      .main-image {
+        min-height: auto;
+        padding: 10px 30px 35px;
+      }
+
+      .main-image img {
+        max-height: 520px;
+      }
+
+      .box-container {
+        grid-template-columns: 1fr;
+      }
+
+      .box {
+        min-height: 130px;
+      }
+    }
+
+    /* =========================
+   NAVBAR
+========================= */
+
+    .navbar {
+      width: calc(100% - 140px);
+      max-width: 1320px;
+      height: 74px;
+
+      margin: 20px auto;
+      padding: 0 28px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      background: #ffffff;
+
+      border: 1px solid #dce8f7;
+      border-radius: 18px;
+
+      box-shadow:
+        0 8px 30px rgba(25, 75, 130, 0.08);
+    }
+
+
+    /* =========================
+   LOGO
+========================= */
+
+    .logo {
+      display: flex;
+      align-items: center;
+
+      gap: 10px;
+
+      color: #07184b;
+
+      font-size: 21px;
+      font-weight: 700;
+
+      text-decoration: none;
+    }
+
+
+    .logo-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    .logo-icon i {
+      color: #146ef5;
+
+      font-size: 30px;
+    }
+
+
+    .logo>span>span {
+      color: #146ef5;
+    }
+
+
+    /* =========================
+   NAV LINKS
+========================= */
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+
+      gap: 38px;
+
+      margin-left: 100px;
+    }
+
+
+    .nav-links a {
+      position: relative;
+
+      padding: 26px 0;
+
+      color: #121b3b;
+
+      font-size: 14px;
+      font-weight: 500;
+
+      text-decoration: none;
+
+      transition: 0.3s;
+    }
+
+
+    .nav-links a:hover {
+      color: #146ef5;
+    }
+
+
+    /* Active Link */
+
+    .nav-links a.active {
+      color: #146ef5;
+    }
+
+
+    .nav-links a.active::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: 5px;
+
+      height: 3px;
+
+      background: #146ef5;
+
+      border-radius: 10px;
+    }
+
+
+    /* =========================
+   START QUIZ BUTTON
+========================= */
+
+    .nav-button {
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+
+      padding: 13px 25px;
+
+      color: #ffffff;
+
+      background: #146ef5;
+
+      border-radius: 11px;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      text-decoration: none;
+
+      box-shadow:
+        0 8px 20px rgba(20, 110, 245, 0.22);
+
+      transition: 0.3s;
+    }
+
+
+    .nav-button:hover {
+      background: #075bd7;
+
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================
+   RESPONSIVE NAVBAR
+========================= */
+
+    @media (max-width: 1100px) {
+
+      .navbar {
+        width: calc(100% - 40px);
+      }
+
+      .nav-links {
+        margin-left: 0;
+        gap: 25px;
+      }
+
+    }
+
+
+    @media (max-width: 700px) {
+
+      .navbar {
+        width: calc(100% - 30px);
+
+        height: auto;
+
+        padding: 15px 20px;
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+      }
+
+
+      .nav-links {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+      }
+
+
+      .nav-links a {
+        padding: 5px;
+      }
+
+
+      .nav-links a.active::after {
+        bottom: -6px;
+      }
+
+    }
+
+
+    @media (max-width: 450px) {
+
+      .logo {
+        font-size: 18px;
+      }
+
+
+      .logo-icon i {
+        font-size: 25px;
+      }
+
+
+      .nav-button {
+        padding: 10px 14px;
+
+        font-size: 12px;
+      }
+
+
+      .nav-links {
+        gap: 20px;
+      }
+
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+    }
+  </style>
+  <link rel="stylesheet" href="homestyle.css">
+</head>
+
+<!-- =========================
+         NAVBAR
+    ========================== -->
+
+<header class="navbar">
+
+  <!-- Logo -->
+  <a href="Index.html" class="logo">
+
+    <div class="logo-icon">
+      <i class="fa-solid fa-graduation-cap"></i>
+    </div>
+
+    <span>
+      Quiz<span>Master</span>
+    </span>
+
+  </a>
+
+
+  <!-- Navigation -->
+  <nav class="nav-links">
+
+    <a href="Index.html" class="active">
+      Home
+    </a>
+
+    <a href="Quiz Category.html">
+      Categories
+    </a>
+
+    <a href="about.html">
+      About
+    </a>
+
+  </nav>
+
+
+  <!-- Start Quiz -->
+  <a href="quiz.html" class="nav-button">
+
+    Start Quiz
+
+    <i class="fa-solid fa-arrow-right"></i>
+
+  </a>
+
+</header>
+
+<main class="about-page">
+  <section class="about-content">
+    <span class="eyebrow">Our Story</span>
+
+    <h1>About QuizMaster</h1>
+
+    <p class="intro">A simple platform to make learning fun and effective.</p>
+
+    <p class="description">
+      QuizMaster is built for students, learners and curious minds who love to explore
+      new knowledge. Our goal is to provide a clean and easy way to practice quizzes
+      on various topics and help you improve every day.
+    </p>
+
+    <div class="box-container">
+      <article class="box">
+        <div class="icon-circle mission-icon">
+          <i class="fa-solid fa-bullseye"></i>
+        </div>
+        <h2>Our Mission</h2>
+        <p>Make learning simple,<br>interactive and fun.</p>
+      </article>
+
+      <article class="box">
+        <div class="icon-circle people-icon">
+          <i class="fa-solid fa-people-group"></i>
+        </div>
+        <h2>For Everyone</h2>
+        <p>Students, professionals<br>and lifelong learners.</p>
+      </article>
+
+      <article class="box">
+        <div class="icon-circle heart-icon">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <h2>Keep Learning</h2>
+        <p>Because every<br>question counts.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="main-image">
+    <img src="images/image.jpeg" alt="Books representing learning and practice">
+  </section>
+</main>
+</body>
+
+</html>
