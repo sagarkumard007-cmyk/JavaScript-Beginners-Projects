@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f6fb" />
+    <title>TaskFlow Pro</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="head">
+        <div class="brand">
+          <div class="logo">
+            <img src="icons/logo.png" alt="" />
+          </div>
+          <span class="brand-name">TaskFlow Pro</span>
+        </div>
+        <div class="search-box">
+          <input type="search" placeholder="Search tasks..." aria-label="Search tasks" />
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="profil">
+          <i class="fa-solid fa-bell" aria-hidden="true"></i>
+          <i class="fa-solid fa-circle-user"></i>
+          <button class="sing-up">Sign Up</button>
+          <button id="theme-btn" type="button" aria-label="Switch to dark theme">
+            <i class="fa-regular fa-moon" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="dashboard">
+        <div class="dashbord-heading">
+          <h1>Dashboard</h1>
+          <h3>Welcome back Sagar Kumar</h3>
+        </div>
+        <div class="dashboard-cards">
+          <div class="total-card box">
+            <p>Total Tasks</p>
+            <h1>0 <i class="fa-solid fa-clipboard-list t"></i></h1>
+          </div>
+          <div class="completed-card box">
+            <p>Completed</p>
+            <h1>0 <i class="fa-solid fa-check-double c"></i></h1>
+          </div>
+          <div class="pending-card box">
+            <p>Pending</p>
+            <h1>0 <i class="fa-regular fa-clock p"></i></h1>
+          </div>
+          <div class="overdue-card box">
+            <p>Overdue</p>
+            <h1>0 <i class="fa-solid fa-circle-exclamation o"></i></h1>
+          </div>
+        </div>
+      </section>
+      <section class="add-task">
+        <div class="add-task-container">
+          <h2>Add New Task</h2>
+
+          <form id="task-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="task-name">Task Name</label>
+                <input
+                  type="text"
+                  id="task-name"
+                  placeholder="Enter task name"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="status">Status</label>
+
+                <select id="progress_status">
+                  <option value="pending ">Pending</option>
+                  <option value="progress">In Progress</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="due-date">Due Date</label>
+                <input type="date" id="due-date" />
+              </div>
+
+              <div class="form-group">
+                <label for="priority">Priority</label>
+
+                <select id="priority">
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
+                </select>
+              </div>
+            </div>
+
+            <button id="add-btn" type="submit">+ Add Task</button>
+          </form>
+        </div>
+      </section>
+      <section class="add-task-recent">
+        <div class="recent-main">
+          <div class="recent-tarks">
+            <div class="recent-heaidng">
+              <h2>Recent Tasks</h2>
+            </div>
+            <div class="table">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Task</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Due Date</th>
+                    <th scope="col">Priority</th>
+                  </tr>
+                </thead>
+                <tbody id="taskTbody">
+                  <tr>
+                    <td>Complete project</td>
+                    <td><span class="s1">In Progress</span></td>
+                    <td>26 May 2026</td>
+                    <td><span class="hi1">High</span></td>
+                  </tr>
+                  <tr>
+                    <td>Design dashboard UI</td>
+                    <td><span class="s2">Completed</span></td>
+                    <td>24 May 2026</td>
+                    <td><span class="hi2">Medium</span></td>
+                  </tr>
+                  <tr>
+                    <td>Fix bugs in module</td>
+                    <td><span class="s3">Pending</span></td>
+                    <td>28 May 2026</td>
+                    <td><span class="hi3">High</span></td>
+                  </tr>
+                  <tr>
+                    <td>Client meeting</td>
+                    <td><span class="s4">In Progress</span></td>
+                    <td>27 May 2026</td>
+                    <td><span class="hi4">Low</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="task-list">
+        <div task-lists></div>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
