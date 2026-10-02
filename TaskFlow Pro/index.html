@@ -29,7 +29,7 @@
           <i class="fa-solid fa-circle-user"></i>
           <button class="sing-up">Sign Up</button>
           <button id="theme-btn" type="button" aria-label="Switch to dark theme">
-            <i class="fa-regular fa-moon" aria-hidden="true"></i>
+            <i class="fa-regular fa-moon" aria-hidden="true" id="change-mood"></i>
           </button>
         </div>
       </div>
@@ -43,19 +43,19 @@
         <div class="dashboard-cards">
           <div class="total-card box">
             <p>Total Tasks</p>
-            <h1>0 <i class="fa-solid fa-clipboard-list t"></i></h1>
+            <h1><span class="task-count">0</span> <i class="fa-solid fa-clipboard-list t"></i></h1>
           </div>
           <div class="completed-card box">
             <p>Completed</p>
-            <h1>0 <i class="fa-solid fa-check-double c"></i></h1>
+            <h1><span class="completed-count">0</span> <i class="fa-solid fa-check-double c"></i></h1>
           </div>
           <div class="pending-card box">
             <p>Pending</p>
-            <h1>0 <i class="fa-regular fa-clock p"></i></h1>
+            <h1><span class="pending-count">0</span> <i class="fa-regular fa-clock p"></i></h1>
           </div>
           <div class="overdue-card box">
             <p>Overdue</p>
-            <h1>0 <i class="fa-solid fa-circle-exclamation o"></i></h1>
+            <h1><span class="overdue-count">0</span> <i class="fa-solid fa-circle-exclamation o"></i></h1>
           </div>
         </div>
       </section>
@@ -71,14 +71,15 @@
                   type="text"
                   id="task-name"
                   placeholder="Enter task name"
+                  required
                 />
               </div>
 
               <div class="form-group">
-                <label for="status">Status</label>
+                <label for="progress_status">Status</label>
 
                 <select id="progress_status">
-                  <option value="pending ">Pending</option>
+                  <option value="pending">Pending</option>
                   <option value="progress">In Progress</option>
                   <option value="completed">Completed</option>
                 </select>
@@ -113,48 +114,19 @@
               <h2>Recent Tasks</h2>
             </div>
             <div class="table">
-              <table>
-                <thead>
-                  <tr>
-                    <th scope="col">Task</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Due Date</th>
-                    <th scope="col">Priority</th>
-                  </tr>
-                </thead>
-                <tbody id="taskTbody">
-                  <tr>
-                    <td>Complete project</td>
-                    <td><span class="s1">In Progress</span></td>
-                    <td>26 May 2026</td>
-                    <td><span class="hi1">High</span></td>
-                  </tr>
-                  <tr>
-                    <td>Design dashboard UI</td>
-                    <td><span class="s2">Completed</span></td>
-                    <td>24 May 2026</td>
-                    <td><span class="hi2">Medium</span></td>
-                  </tr>
-                  <tr>
-                    <td>Fix bugs in module</td>
-                    <td><span class="s3">Pending</span></td>
-                    <td>28 May 2026</td>
-                    <td><span class="hi3">High</span></td>
-                  </tr>
-                  <tr>
-                    <td>Client meeting</td>
-                    <td><span class="s4">In Progress</span></td>
-                    <td>27 May 2026</td>
-                    <td><span class="hi4">Low</span></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="task-table" role="table" aria-label="Recent tasks">
+                <div class="task-row task-header" role="row">
+                  <div class="task-cell" role="columnheader">Task</div>
+                  <div class="task-cell" role="columnheader">Status</div>
+                  <div class="task-cell" role="columnheader">Due Date</div>
+                  <div class="task-cell" role="columnheader">Priority</div>
+                  <div class="task-cell" role="columnheader">Actions</div>
+                </div>
+                <div id="taskTbody" role="rowgroup"></div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
-      <section class="task-list">
-        <div task-lists></div>
       </section>
     </main>
     <footer></footer>
